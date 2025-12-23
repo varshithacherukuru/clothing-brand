@@ -1,157 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Village Clothes</title>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <title>Village Clothes | Authentic Fashion</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Three.js -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-<style>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
 
-/* INTRO VIDEO */
-#video-intro {
-  position: fixed;
-  inset: 0;
-  background: black;
-  z-index: 9999;
-}
+    /* ================= INTRO VIDEO ================= */
+    #video-intro {
+      position: fixed;
+      inset: 0;
+      background: black;
+      z-index: 9999;
+    }
 
-#video-intro video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    #video-intro video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;   /* 🔥 prevents head cutting */
+      background: black;
+    }
 
-/* MAIN CONTENT */
-#main-content {
-  display: none;
-}
+    /* ================= MAIN CONTENT ================= */
+    #main-content {
+      display: none;
+    }
 
-/* HEADER */
-header {
-  height: 70px;
-  padding: 0 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(0,0,0,0.6);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 10;
-}
+    /* ================= HEADER ================= */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      padding: 0 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0,0,0,0.6);
+      z-index: 10;
+    }
 
-.logo img {
-  height: 42px;
-}
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
 
-/* NAV */
-nav a {
-  margin-left: 30px;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-}
+    nav a {
+      margin-left: 30px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
 
-/* HERO */
-.hero {
-  min-height: 100vh;
-  background: url("image1.jpeg") center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 80px;
-  color: white;
-}
+    /* ================= HERO ================= */
+    .hero {
+      min-height: 100vh;
+      background: url("image1.jpeg") center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 80px 40px;
+      color: white;
+    }
 
-.hero h1 {
-  font-size: 72px;
-}
+    .hero h1 {
+      font-size: 72px;
+      line-height: 1.1;
+    }
 
-.hero p {
-  font-size: 18px;
-  max-width: 500px;
-  margin-top: 10px;
-}
+    .hero p {
+      font-size: 18px;
+      max-width: 500px;
+      margin-top: 12px;
+    }
 
-.cta-btn {
-  margin-top: 25px;
-  padding: 14px 34px;
-  background: #8b6f47;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  font-size: 14px;
-  cursor: pointer;
-}
+    .cta-btn {
+      margin-top: 24px;
+      padding: 14px 34px;
+      background: #8b6f47;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 14px;
+      cursor: pointer;
+      width: fit-content;
+    }
 
-/* ============================= */
-/* MOBILE & TABLET RESPONSIVE */
-/* ============================= */
+    /* ================= RESPONSIVE ================= */
 
-@media (max-width: 1024px) {
-  .hero {
-    padding-left: 40px;
-  }
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .hero {
+        padding: 120px 40px 40px;
+      }
 
-  .hero h1 {
-    font-size: 56px;
-  }
-}
+      .hero h1 {
+        font-size: 56px;
+      }
+    }
 
-@media (max-width: 768px) {
+    /* Mobile */
+    @media (max-width: 768px) {
 
-  header {
-    padding: 0 20px;
-  }
+      header {
+        position: relative;
+        height: auto;
+        padding: 12px 20px;
+      }
 
-  nav {
-    display: none;
-  }
+      nav {
+        display: none;
+      }
 
-  .hero {
-    padding: 0 20px;
-    text-align: left;
-  }
+      .hero {
+        padding: 40px 20px;
+        min-height: auto;
+      }
 
-  .hero h1 {
-    font-size: 40px;
-  }
+      .hero h1 {
+        font-size: 38px;
+      }
 
-  .hero p {
-    font-size: 16px;
-  }
+      .hero p {
+        font-size: 15px;
+      }
 
-  .cta-btn {
-    font-size: 13px;
-    padding: 12px 26px;
-  }
-}
-</style>
+      .cta-btn {
+        font-size: 13px;
+        padding: 12px 26px;
+      }
+
+      /* Mobile video fix */
+      #video-intro video {
+        object-fit: contain; /* no cropping on mobile */
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- INTRO VIDEO -->
+  <!-- ================= INTRO VIDEO ================= -->
   <section id="video-intro">
-    <video id="introVideo" autoplay muted playsinline>
+    <video id="introVideo" autoplay muted playsinline preload="auto">
       <source src="intro.mp4" type="video/mp4">
     </video>
   </section>
 
-  <!-- MAIN WEBSITE (HIDDEN FIRST) -->
+  <!-- ================= WEBSITE ================= -->
   <div id="main-content">
 
     <header>
@@ -178,6 +189,7 @@ nav a {
 
   </div>
 
+  <!-- ================= SCRIPT ================= -->
   <script>
     const video = document.getElementById("introVideo");
     const intro = document.getElementById("video-intro");
@@ -189,6 +201,12 @@ nav a {
       intro.style.display = "none";
       main.style.display = "block";
     };
+
+    // Safety fallback (in case autoplay ends early)
+    setTimeout(() => {
+      intro.style.display = "none";
+      main.style.display = "block";
+    }, 6000);
   </script>
 
 </body>
