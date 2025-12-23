@@ -9,207 +9,133 @@
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 
   <style>
-:root {
-  --bg: #f6f4ef;
-  --dark: #2b2a26;
-  --accent: #8b6f47;
-  --card: #ffffff;
-}
+<style>
 
+/* existing styles you already have */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: var(--bg);
-  color: var(--dark);
 }
 
 header {
-  height: 70px;         
+  height: 70px;
   padding: 0 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(0,0,0,0.65);
-}
-.logo {
-  display: flex;
-  align-items: center;
 }
 
+/* ===== ADD THIS ONLY ONCE ===== */
+
+/* INTRO VIDEO */
+#video-intro {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 9999;
+}
+
+#video-intro video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* HIDE MAIN CONTENT INITIALLY */
+#main-content {
+  display: none;
+}
+
+/* LOGO SIZE FIX */
 .logo img {
-  max-height: 28px;     
-  height: 28px;
+  height: 45px;
   width: auto;
-  display: block;
 }
 
-header h1 {
-  font-size: 28px;
-  letter-spacing: 1px;
-}
-
-nav a {
-  margin-left: 30px;
-  text-decoration: none;
-  color: var(--dark);
-  font-weight: 500;
-}
-
+/* HERO SECTION */
 .hero {
   min-height: 100vh;
+  background: url("image1.jpeg") center/cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 12%;
-  background: url("image1.jpeg")
-center center / cover no-repeat;
-}
-    
-.cta-btn {
-  margin-top: 32px;
-  padding: 14px 34px;
-  background: #8b6f47;
-  color: #ffffff;
-  border: none;
-  border-radius: 999px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  width: auto;
-  display: inline-block;
-}
-
-.cta-btn:hover {
-  background: #6f5635;
+  padding-left: 80px;
+  color: white;
 }
 
 .hero h1 {
-  color: #ffffff;
-  font-size: 64px;
-  font-weight: 700;
+  font-size: 72px;
+  margin: 0;
 }
 
 .hero p {
-  color: #ffffff;
-  font-size: 20px;
-  margin-top: 12px;
+  font-size: 18px;
+  max-width: 500px;
 }
 
-.hero h1,
-.hero p {
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.6);
-}
-
-.hero button {
-  margin-top: 30px;
+.cta-btn {
+  margin-top: 20px;
   padding: 14px 32px;
-  background: var(--accent);
-  color: #fff;
+  background: #8b6f47;
+  color: white;
   border: none;
   border-radius: 30px;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
-  width: fit-content;
-}
-    
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 40px;
-  padding: 80px 10%;
 }
 
-.product {
-  background: var(--card);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform 0.3s;
-}
-
-.product:hover {
-  transform: translateY(-8px);
-}
-
-.product img {
-  width: 100%;
-}
-
-.product-info {
-  padding: 20px;
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  background: #ece7db;
-}
+</style>
 </style>
 </head>
 
 <body>
-<section id="video-intro">
-  <video id="introVideo" autoplay muted playsinline>
-    <source src="intro.mp4" type="video/mp4">
-  </video>
-</section>
-<header>
-  <div class="logo">
-  <img src="Tiger.jpeg" alt="Village Clothes Logo" class="logo">
+
+  <!-- INTRO VIDEO -->
+  <section id="video-intro">
+    <video id="introVideo" autoplay muted playsinline>
+      <source src="intro.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <!-- MAIN WEBSITE (HIDDEN FIRST) -->
+  <div id="main-content">
+
+    <header>
+      <div class="logo">
+        <img src="Tiger.jpeg" alt="Village Clothes Logo">
+      </div>
+
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Village Clothes</h1>
+      <p>
+        Authentic fashion inspired by village roots,<br>
+        crafted for modern comfort.
+      </p>
+      <button class="cta-btn">Explore Collection</button>
+    </section>
+
   </div>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </nav>
-</header>
-<section class="hero">
-  <h1>Village Clothes</h1>
-  <p>
-    Authentic fashion inspired by village roots,<br>
-    crafted for modern comfort.
-  </p>
-  <button class="cta-btn">Explore Collection</button>
-</section>
-<footer>
-  <p>© 2025 Your Brand Name. All rights reserved.</p>
-</footer>
+  <script>
+    const video = document.getElementById("introVideo");
+    const intro = document.getElementById("video-intro");
+    const main = document.getElementById("main-content");
 
-<script>
-  const container = document.getElementById("three-container");
+    main.style.display = "none";
 
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, container.clientWidth / 400, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-
-  renderer.setSize(container.clientWidth, 400);
-  container.appendChild(renderer.domElement);
-
-  // Lights
-  const light = new THREE.DirectionalLight(0xffffff, 1);
-  light.position.set(5, 5, 5);
-  scene.add(light);
-
-  const ambient = new THREE.AmbientLight(0xffffff, 0.5);
-  scene.add(ambient);
-
-  // 3D Product (Placeholder box – replace with real T-shirt model later)
-  const geometry = new THREE.BoxGeometry(1.5, 2, 0.3);
-  const material = new THREE.MeshStandardMaterial({ color: 0x000000 });
-  const product = new THREE.Mesh(geometry, material);
-  scene.add(product);
-
-  camera.position.z = 4;
-
-  function animate() {
-    requestAnimationFrame(animate);
-    product.rotation.y += 0.01;
-    renderer.render(scene, camera);
-  }
-
-  animate();
-</script>
+    video.onended = () => {
+      intro.style.display = "none";
+      main.style.display = "block";
+    };
+  </script>
 
 </body>
 </html>
