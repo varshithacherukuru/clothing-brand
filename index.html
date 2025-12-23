@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Brand Name</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #222;
+    }
+
+    header {
+      background: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background: #f4f4f4;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+    }
+
+    .hero p {
+      font-size: 18px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 28px;
+      margin-top: 40px;
+    }
+
+    /* 3D Section */
+    #three-container {
+      width: 100%;
+      height: 400px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .product img {
+      width: 100%;
+    }
+
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Your Brand Name</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Shop</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>New Collection 2025</h1>
+  <p>Premium streetwear for modern lifestyle</p>
+</section>
+
+<h2 class="section-title">3D Featured Product</h2>
+
+<div id="three-container"></div>
+
+<h2 class="section-title">Shop Now</h2>
+
+<section class="products">
+  <div class="product">
+    <img src="https://via.placeholder.com/300x400">
+    <h3>Classic T-Shirt</h3>
+    <p>₹799</p>
+  </div>
+  <div class="product">
+    <img src="https://via.placeholder.com/300x400">
+    <h3>Hoodie</h3>
+    <p>₹1,499</p>
+  </div>
+  <div class="product">
+    <img src="https://via.placeholder.com/300x400">
+    <h3>Jacket</h3>
+    <p>₹2,299</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Your Brand Name. All rights reserved.</p>
+</footer>
+
+<script>
+  const container = document.getElementById("three-container");
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, container.clientWidth / 400, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+  renderer.setSize(container.clientWidth, 400);
+  container.appendChild(renderer.domElement);
+
+  // Lights
+  const light = new THREE.DirectionalLight(0xffffff, 1);
+  light.position.set(5, 5, 5);
+  scene.add(light);
+
+  const ambient = new THREE.AmbientLight(0xffffff, 0.5);
+  scene.add(ambient);
+
+  // 3D Product (Placeholder box – replace with real T-shirt model later)
+  const geometry = new THREE.BoxGeometry(1.5, 2, 0.3);
+  const material = new THREE.MeshStandardMaterial({ color: 0x000000 });
+  const product = new THREE.Mesh(geometry, material);
+  scene.add(product);
+
+  camera.position.z = 4;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    product.rotation.y += 0.01;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+</script>
+
+</body>
+</html>
