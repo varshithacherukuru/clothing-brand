@@ -44,11 +44,36 @@ nav a {
 }
 
 .hero {
-  height: 90vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 10%;
+  padding: 0 12%;
+  background:
+    linear-gradient(
+      rgba(246, 244, 239, 0.88),
+      rgba(246, 244, 239, 0.88)
+    ),
+    url("https://images.unsplash.com/photo-1520975922321-4e3c6d5a9f44?auto=format&fit=crop&w=1600&q=80")
+    center / cover no-repeat;
+}
+    
+.cta-btn {
+  margin-top: 32px;
+  padding: 14px 34px;
+  background: #8b6f47;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  width: auto;
+  display: inline-block;
+}
+
+.cta-btn:hover {
+  background: #6f5635;
 }
 
 .hero h1 {
@@ -120,8 +145,11 @@ footer {
 </header>
 <section class="hero">
   <h1>Village Clothes</h1>
-  <p>Authentic fashion inspired by village roots and modern comfort.</p>
-  <button>Explore Collection</button>
+  <p>
+    Authentic fashion inspired by village roots,<br>
+    crafted for modern comfort.
+  </p>
+  <button class="cta-btn">Explore Collection</button>
 </section>
 <footer>
   <p>© 2025 Your Brand Name. All rights reserved.</p>
