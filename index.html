@@ -9,77 +9,101 @@
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: #222;
-    }
+:root {
+  --bg: #f6f4ef;
+  --dark: #2b2a26;
+  --accent: #8b6f47;
+  --card: #ffffff;
+}
 
-    header {
-      background: #000;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+}
 
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 60px;
+  background: var(--bg);
+}
 
-    .hero {
-      padding: 60px 20px;
-      text-align: center;
-      background: #f4f4f4;
-    }
+header h1 {
+  font-size: 28px;
+  letter-spacing: 1px;
+}
 
-    .hero h1 {
-      font-size: 42px;
-    }
+nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+}
 
-    .hero p {
-      font-size: 18px;
-    }
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10%;
+}
 
-    .section-title {
-      text-align: center;
-      font-size: 28px;
-      margin-top: 40px;
-    }
+.hero h1 {
+  font-size: 64px;
+  margin: 0;
+}
 
-    /* 3D Section */
-    #three-container {
-      width: 100%;
-      height: 400px;
-    }
+.hero p {
+  font-size: 20px;
+  max-width: 500px;
+}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 40px;
-    }
+.hero button {
+  margin-top: 30px;
+  padding: 14px 36px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-    .product {
-      border: 1px solid #ddd;
-      padding: 20px;
-      text-align: center;
-    }
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  padding: 80px 10%;
+}
 
-    .product img {
-      width: 100%;
-    }
+.product {
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
 
-    footer {
-      background: #000;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-    }
-  </style>
+.product:hover {
+  transform: translateY(-8px);
+}
+
+.product img {
+  width: 100%;
+}
+
+.product-info {
+  padding: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #ece7db;
+}
+</style>
 </head>
 
 <body>
@@ -93,36 +117,11 @@
     <a href="#">Contact</a>
   </nav>
 </header>
-
 <section class="hero">
-  <h1>New Collection 2025</h1>
-  <p>Premium streetwear for modern lifestyle</p>
+  <h1>Village Clothes</h1>
+  <p>Authentic fashion inspired by village roots and modern comfort.</p>
+  <button>Explore Collection</button>
 </section>
-
-<h2 class="section-title">3D Featured Product</h2>
-
-<div id="three-container"></div>
-
-<h2 class="section-title">Shop Now</h2>
-
-<section class="products">
-  <div class="product">
-    <img src="https://via.placeholder.com/300x400">
-    <h3>Classic T-Shirt</h3>
-    <p>₹799</p>
-  </div>
-  <div class="product">
-    <img src="https://via.placeholder.com/300x400">
-    <h3>Hoodie</h3>
-    <p>₹1,499</p>
-  </div>
-  <div class="product">
-    <img src="https://via.placeholder.com/300x400">
-    <h3>Jacket</h3>
-    <p>₹2,299</p>
-  </div>
-</section>
-
 <footer>
   <p>© 2025 Your Brand Name. All rights reserved.</p>
 </footer>
